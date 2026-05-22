@@ -1,0 +1,6 @@
+{
+  "name": "AI Job Aggregator Backend",
+  "description": "A high-conversion multi-language Next.js landing page with interactive AI CV matching.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

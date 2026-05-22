@@ -1,0 +1,33 @@
+{
+  "Navigation": {
+    "login": "Увійти",
+    "dashboard": "Панель",
+    "logout": "Вийти"
+  },
+  "Index": {
+    "title": "Отримайте роботу мрії в IT з AI-адаптованими резюме",
+    "subtitle": "Шукайте вакансії по всьому світу та миттєво оцінюйте своє резюме.",
+    "searchPlaceholder": "Пошук вакансій (напр. Frontend React, Backend Python)",
+    "matchScoreTitle": "Оцінка збігу AI",
+    "pasteCv": "Вставте своє резюме тут...",
+    "analyze": "Аналізувати збіг",
+    "coverLetterLocked": "Увійдіть, щоб згенерувати та завантажити ідеальний супровідний лист",
+    "loginToUnlock": "Увійти для розблокування"
+  },
+  "Dashboard": {
+    "title": "Панель користувача",
+    "cvSectionTitle": "Ваше основне резюме",
+    "uploadPdf": "Завантажити резюме (PDF)",
+    "saveCv": "Зберегти",
+    "cvSavedText": "Ваше резюме безпечно збережено.",
+    "savedJobsTitle": "Збережені вакансії",
+    "viewReport": "Звіт ATS та лист",
+    "matchScoreTitle": "Оцінка збігу AI",
+    "missingSkills": "Відсутні ключові слова/навички",
+    "atsTips": "Поради щодо оптимізації ATS",
+    "downloadLanguageInfo": "Оберіть мову та завантажте лист",
+    "downloadCoverLetter": "Завантажити супровідний лист",
+    "noSavedJobs": "Ви ще не зберегли жодної вакансії.",
+    "backToDashboard": "Повернутися до панелі"
+  }
+}

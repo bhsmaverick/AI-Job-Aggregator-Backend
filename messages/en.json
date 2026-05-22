@@ -1,0 +1,33 @@
+{
+  "Navigation": {
+    "login": "Login",
+    "dashboard": "Dashboard",
+    "logout": "Logout"
+  },
+  "Index": {
+    "title": "Land your dream tech job with AI-tailored applications",
+    "subtitle": "Search worldwide jobs and instantly grade your CV against them.",
+    "searchPlaceholder": "Search jobs (e.g. Frontend React, Backend Python)",
+    "matchScoreTitle": "AI Match Score",
+    "pasteCv": "Paste your CV here...",
+    "analyze": "Analyze Match",
+    "coverLetterLocked": "Register via Google to generate and download the perfect cover letter",
+    "loginToUnlock": "Login to Unlock"
+  },
+  "Dashboard": {
+    "title": "User Dashboard",
+    "cvSectionTitle": "Your Primary CV",
+    "uploadPdf": "Upload CV (PDF)",
+    "saveCv": "Save CV",
+    "cvSavedText": "Your CV has been saved securely.",
+    "savedJobsTitle": "Saved Jobs",
+    "viewReport": "View ATS Report & Cover Letter",
+    "matchScoreTitle": "AI Match Score",
+    "missingSkills": "Missing Keywords/Skills",
+    "atsTips": "ATS Optimization Tips",
+    "downloadLanguageInfo": "Select language and download cover letter",
+    "downloadCoverLetter": "Download Cover Letter",
+    "noSavedJobs": "You haven't saved any jobs yet.",
+    "backToDashboard": "Back to Dashboard"
+  }
+}
