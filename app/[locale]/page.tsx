@@ -22,7 +22,7 @@ export default function LandingPage() {
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-900/40 via-slate-950/20 to-[#0a0a0a] -z-10" />
         
         <div className="bg-indigo-500/10 text-indigo-400 font-mono text-xs font-semibold px-4 py-1.5 rounded-full mb-8 inline-flex items-center gap-2 uppercase tracking-widest border border-indigo-500/20">
-          <Sparkles size={14} /> AI-Powered Job Aggregator
+          <Sparkles size={14} /> {tInfo('heroBadge')}
         </div>
         
         <h1 className="text-4xl md:text-7xl font-bold tracking-tighter text-white max-w-4xl mb-8">
@@ -195,7 +195,7 @@ export default function LandingPage() {
       </section>
 
       <footer className="text-center py-12 border-t border-slate-900 text-slate-600 text-sm font-mono">
-        &copy; {new Date().getFullYear()} Target AI Resume Analyzer.
+        {tInfo('footer', { year: new Date().getFullYear() })}
       </footer>
     </div>
   );

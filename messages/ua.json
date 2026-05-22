@@ -1,5 +1,6 @@
 {
   "Navigation": {
+    "logo": "AI Job Aggregator",
     "login": "Увійти",
     "dashboard": "Панель",
     "logout": "Вийти"
@@ -15,6 +16,7 @@
     "loginToUnlock": "Увійти для розблокування"
   },
   "LandingInfo": {
+    "heroBadge": "AI Job Aggregator",
     "trustedBy": "Нам довіряють інженери з провідних компаній",
     "howItWorksTitle": "Глибоке занурення: Як працює наш ATS AI",
     "howItWorksSubtitle": "Наша система використовує реверс-інжиніринг ATS (Applicant Tracking Systems), щоб ваше резюме пройшло автоматичні фільтри.",
@@ -41,7 +43,8 @@
     "faq3A": "Так. Використовуючи передові LLM і надаючи точний контекст вашого резюме та вакансії, згенерований лист виходить дуже персоналізованим.",
     "bottomCtaTitle": "Припиніть провалювати ATS фільтри.",
     "bottomCtaSubtitle": "Почніть мапити своє резюме безкоштовно.",
-    "bottomCtaButton": "Почати зараз"
+    "bottomCtaButton": "Почати зараз",
+    "footer": "© {year} Target AI Resume Analyzer."
   },
   "Dashboard": {
     "title": "Панель користувача",

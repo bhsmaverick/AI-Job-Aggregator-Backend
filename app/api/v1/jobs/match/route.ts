@@ -1,39 +1,32 @@
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-export async function POST(request: Request) {
-  const formData = await request.formData();
-  const cvText = formData.get('cvText');
-  const jobId = formData.get('jobId');
-
-  // Simple mock simulation of an AI match limit/score
-  let score = 0;
-  let missingSkills = [];
-  
-  if (!cvText || cvText.toString().length < 10) {
-    score = 15;
-    missingSkills = ['Please provide more detail in your CV'];
-  } else if (jobId === 'job_1') {
-    score = 78;
-    missingSkills = ['Docker', 'GraphQL'];
+export async function POST(request: NextRequest) {
+  try {
+    const formData = await request.formData();
     
-  } else if (jobId === 'job_2') {
-    score = 42;
-    missingSkills = ['Python', 'FastAPI', 'PostgreSQL'];
-  } else {
-    score = 65;
-    missingSkills = ['Elasticsearch'];
-  }
+    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8000';
+    const acceptLanguage = request.headers.get('accept-language') || 'EN';
 
-  return NextResponse.json({
-    job_id: jobId,
-    match_result: {
-      match_percentage: score,
-      missing_skills: missingSkills,
-      ats_optimization_tips: [
-        'Use more action verbs in your recent experience',
-        'Highlight quantifiable metrics (e.g. improved performance by X%)'
-      ]
-    },
-    cover_letter: null // Kept null for the auth wall simulation
-  });
+    const response = await fetch(`${backendUrl}/api/v1/jobs/match`, {
+      method: 'POST',
+      headers: {
+        'Accept-Language': acceptLanguage,
+      },
+      body: formData,
+    });
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      return NextResponse.json({ error: errorText }, { status: response.status });
+    }
+
+    const data = await response.json();
+    return NextResponse.json(data);
+  } catch (error) {
+    console.error('Match Proxy Error:', error);
+    return NextResponse.json(
+      { error: 'Internal Server Error forwarding request to backend' },
+      { status: 500 }
+    );
+  }
 }

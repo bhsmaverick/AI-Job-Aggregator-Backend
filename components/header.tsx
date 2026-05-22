@@ -31,7 +31,7 @@ export default function Header({ locale }: { locale: string }) {
     <header className="fixed top-0 w-full border-b border-slate-800 bg-slate-950/80 backdrop-blur-md z-50 h-16 flex items-center">
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
         <Link href={`/${locale}`} className="font-mono text-indigo-400 font-bold uppercase tracking-widest text-xs md:text-sm hover:text-indigo-300 transition-colors">
-          AI Job Aggregator
+          {t('logo')}
         </Link>
         
         <div className="flex items-center gap-4 md:gap-6">
@@ -68,7 +68,7 @@ export default function Header({ locale }: { locale: string }) {
             >
               <User size={14} className="md:hidden" />
               <span className="hidden md:inline">{t('login')}</span>
-              <span className="md:hidden">Log In</span>
+              <span className="md:hidden">{t('login')}</span>
             </button>
           )}
         </div>

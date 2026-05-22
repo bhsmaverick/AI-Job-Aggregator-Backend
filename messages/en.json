@@ -1,5 +1,6 @@
 {
   "Navigation": {
+    "logo": "AI Job Aggregator",
     "login": "Login",
     "dashboard": "Dashboard",
     "logout": "Logout"
@@ -15,6 +16,7 @@
     "loginToUnlock": "Login to Unlock"
   },
   "LandingInfo": {
+    "heroBadge": "AI-Powered Job Aggregator",
     "trustedBy": "Trusted by software engineers at top companies",
     "howItWorksTitle": "Deep Dive: How our ATS AI Works",
     "howItWorksSubtitle": "Our system reverse-engineers ATS (Applicant Tracking Systems) to ensure your CV passes the automated resume screeners.",
@@ -41,7 +43,8 @@
     "faq3A": "Yes. By using advanced LLMs and providing the exact context of your CV and the job description, the generated cover letter is highly tailored and indistinguishable from a carefully crafted manual letter.",
     "bottomCtaTitle": "Stop failing ATS filters.",
     "bottomCtaSubtitle": "Start mapping your CV for free.",
-    "bottomCtaButton": "Start Mapping Now"
+    "bottomCtaButton": "Start Mapping Now",
+    "footer": "© {year} Target AI Resume Analyzer."
   },
   "Dashboard": {
     "title": "User Dashboard",

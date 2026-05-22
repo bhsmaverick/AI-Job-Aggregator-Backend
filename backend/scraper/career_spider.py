@@ -33,18 +33,54 @@ class DynamicCareerSpider(scrapy.Spider):
         }
     }
 
-    def __init__(self, target_url=None, rules=None, *args, **kwargs):
+    def __init__(self, target_url=None, rules=None, locale=None, *args, **kwargs):
         super(DynamicCareerSpider, self).__init__(*args, **kwargs)
-        self.start_urls = [target_url] if target_url else []
-        self.rules = json.loads(rules) if isinstance(rules, str) else (rules or {})
+        self.site_configs = {}
+        self.start_urls = []
+        self.allowed_domains = []
         
-        if target_url:
-            from urllib.parse import urlparse
-            self.allowed_domains = [urlparse(target_url).netloc]
+        import os
+        from urllib.parse import urlparse
+        
+        if locale:
+            config_path = os.path.join(os.path.dirname(__file__), 'config', 'global_sources.json')
+            if os.path.exists(config_path):
+                with open(config_path, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                
+                sources = data.get(locale, {})
+                for site_name, cfg in sources.items():
+                    url = cfg.get('target_url')
+                    if url:
+                        domain = urlparse(url).netloc
+                        # Strip www. to ensure better matching
+                        clean_domain = domain.replace('www.', '')
+                        self.site_configs[clean_domain] = cfg
+                        self.start_urls.append(url)
+                        self.allowed_domains.append(clean_domain)
+                        self.allowed_domains.append(domain)
+        elif target_url:
+            self.start_urls = [target_url]
+            domain = urlparse(target_url).netloc
+            clean_domain = domain.replace('www.', '')
+            self.allowed_domains = [domain, clean_domain]
+            self.site_configs[clean_domain] = {
+                'target_url': target_url,
+                'rules': json.loads(rules) if isinstance(rules, str) else (rules or {})
+            }
+
+    def _get_rules(self, url):
+        from urllib.parse import urlparse
+        domain = urlparse(url).netloc.replace('www.', '')
+        for d, cfg in self.site_configs.items():
+            if d == domain or domain.endswith('.' + d) or d.endswith('.' + domain):
+                return cfg.get('rules', {})
+        return {}
 
     def parse(self, response):
         """Parse the job list page."""
-        list_rule = self.rules.get('list_page', {})
+        rules = self._get_rules(response.url)
+        list_rule = rules.get('list_page', {})
         job_links_css = list_rule.get('job_links_css')
         job_links_xpath = list_rule.get('job_links_xpath')
         
@@ -56,7 +92,7 @@ class DynamicCareerSpider(scrapy.Spider):
             
         for url in links:
             if url:
-                yield response.follow(url, self.parse_job)
+                yield response.follow(url, self.parse_job, meta={'rules': rules})
         
         # Follow pagination
         next_page_css = list_rule.get('next_page_css')
@@ -73,7 +109,8 @@ class DynamicCareerSpider(scrapy.Spider):
 
     def parse_job(self, response):
         """Parse individual job details."""
-        detail_rule = self.rules.get('detail_page', {})
+        rules = response.meta.get('rules', self._get_rules(response.url))
+        detail_rule = rules.get('detail_page', {})
         
         def extract(field):
             css_sel = detail_rule.get(f'{field}_css')

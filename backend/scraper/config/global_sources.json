@@ -1,0 +1,282 @@
+{
+  "en": {
+    "y_combinator": {
+      "target_url": "https://www.workatastartup.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-listing a::attr(href)", "next_page_css": "a.next-page::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-description-content", "skills_css": "ul.skills li::text" }
+      }
+    },
+    "wellfound": {
+      "target_url": "https://wellfound.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".styles_jobListing__links a::attr(href)", "next_page_css": ".pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h2.job-title::text", "company_css": "h1.company-name::text", "location_css": ".location-tag::text", "description_css": ".description", "skills_css": ".skills-tag::text" }
+      }
+    },
+    "weworkremotely": {
+      "target_url": "https://weworkremotely.com/categories/remote-programming-jobs",
+      "rules": {
+        "list_page": { "job_links_css": "article ul li a::attr(href)", "next_page_css": ".next::attr(href)" },
+        "detail_page": { "title_css": ".listing-header h1::text", "company_css": ".company-card h2::text", "location_css": ".location::text", "description_css": ".listing-container", "skills_css": ".skill-badge::text" }
+      }
+    },
+    "otta": {
+      "target_url": "https://otta.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-card a::attr(href)", "next_page_css": ".next-button::attr(href)" },
+        "detail_page": { "title_css": "h1[data-testid='job-title']::text", "company_css": "h2[data-testid='company-name']::text", "location_css": "div[data-testid='location']::text", "description_css": "div[data-testid='description']", "skills_css": ".skills-list li::text" }
+      }
+    }
+  },
+  "es": {
+    "tecnoempleo": {
+      "target_url": "https://www.tecnoempleo.com/ofertas-trabajo",
+      "rules": {
+        "list_page": { "job_links_css": ".p-2 a.text-primary::attr(href)", "next_page_css": ".pagination a[rel='next']::attr(href)" },
+        "detail_page": { "title_css": "h1[itemprop='title']::text", "company_css": "span[itemprop='name']::text", "location_css": "span[itemprop='addressLocality']::text", "description_css": "div[itemprop='description']", "skills_css": ".badge-skill::text" }
+      }
+    },
+    "infojobs": {
+      "target_url": "https://www.infojobs.net/jobsearch/search-results/list.xhtml",
+      "rules": {
+        "list_page": { "job_links_css": ".sui-AtomCard-link::attr(href)", "next_page_css": ".sui-Pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company-link::text", "location_css": ".location::text", "description_css": "#job-description", "skills_css": ".skill-label::text" }
+      }
+    },
+    "getonboard": {
+      "target_url": "https://www.getonbrd.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-list a::attr(href)", "next_page_css": ".pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".job-location::text", "description_css": ".job-body", "skills_css": ".skill-tag::text" }
+      }
+    }
+  },
+  "pt": {
+    "landing_jobs": {
+      "target_url": "https://landing.jobs/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-card-title a::attr(href)", "next_page_css": ".next-page::attr(href)" },
+        "detail_page": { "title_css": ".job-title::text", "company_css": ".company-name::text", "location_css": ".location-name::text", "description_css": ".job-description", "skills_css": ".skill::text" }
+      }
+    },
+    "itjobs_pt": {
+      "target_url": "https://www.itjobs.pt/emprego",
+      "rules": {
+        "list_page": { "job_links_css": ".list-title a::attr(href)", "next_page_css": ".next a::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-desc", "skills_css": ".tags li::text" }
+      }
+    },
+    "revelo": {
+      "target_url": "https://www.revelo.com.br/vagas",
+      "rules": {
+        "list_page": { "job_links_css": ".job-list-item a::attr(href)", "next_page_css": ".pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".job-location::text", "description_css": ".job-description", "skills_css": ".skill-tag::text" }
+      }
+    }
+  },
+  "de": {
+    "honeypot": {
+      "target_url": "https://www.honeypot.io/en/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-link::attr(href)", "next_page_css": ".pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".skill::text" }
+      }
+    },
+    "gulp": {
+      "target_url": "https://www.gulp.de/gulp2/g/projekte",
+      "rules": {
+        "list_page": { "job_links_css": ".project-title a::attr(href)", "next_page_css": ".pager-next a::attr(href)" },
+        "detail_page": { "title_css": "h1.headline::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description-text", "skills_css": ".skill-item::text" }
+      }
+    },
+    "stepstone": {
+      "target_url": "https://www.stepstone.de/jobs/it",
+      "rules": {
+        "list_page": { "job_links_css": "a.res-1j92n6r::attr(href)", "next_page_css": "a[aria-label='Next']::attr(href)" },
+        "detail_page": { "title_css": "h1.listing-title::text", "company_css": ".listing-company::text", "location_css": ".listing-location::text", "description_css": ".listing-content", "skills_css": ".listing-skills span::text" }
+      }
+    }
+  },
+  "fr": {
+    "welcome_to_the_jungle": {
+      "target_url": "https://www.welcometothejungle.com/fr/jobs",
+      "rules": {
+        "list_page": { "job_links_css": "a.sc-1cr1uht-0::attr(href)", "next_page_css": "a[aria-label='Next page']::attr(href)" },
+        "detail_page": { "title_css": "h1.sc-1b5tqcx-0::text", "company_css": ".company-name::text", "location_css": ".sc-1h7hqcc-0::text", "description_css": "div[data-testid='job-description']", "skills_css": ".sc-10kdfh2-0::text" }
+      }
+    },
+    "lesjeudis": {
+      "target_url": "https://www.lesjeudis.com/recherche",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".pagination-next a::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-description", "skills_css": ".skill-tag::text" }
+      }
+    }
+  },
+  "ua": {
+    "dou": {
+      "target_url": "https://jobs.dou.ua/vacancies/",
+      "rules": {
+        "list_page": { "job_links_css": ".vta a::attr(href)", "next_page_css": ".more-btn a::attr(href)" },
+        "detail_page": { "title_css": "h1.g-h2::text", "company_css": ".l-n::text", "location_css": ".place::text", "description_css": ".b-typo.vacancy-section", "skills_css": null }
+      }
+    },
+    "djinni": {
+      "target_url": "https://djinni.co/jobs/",
+      "rules": {
+        "list_page": { "job_links_css": ".job-list__item a.profile::attr(href)", "next_page_css": ".pagination li.active + li a::attr(href)" },
+        "detail_page": { "title_css": "h1::text", "company_css": ".job-details--company_title a::text", "location_css": ".location-text::text", "description_css": ".job-format .row", "skills_css": ".job-details--skill span::text" }
+      }
+    },
+    "robota_ua": {
+      "target_url": "https://robota.ua/zapros/it",
+      "rules": {
+        "list_page": { "job_links_css": "a.card::attr(href)", "next_page_css": "a.pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1[data-id='vacancy-title']::text", "company_css": "span[data-id='company-name']::text", "location_css": "span[data-id='city-name']::text", "description_css": "div[data-id='vacancy-description']", "skills_css": ".skills-tag::text" }
+      }
+    }
+  },
+  "pl": {
+    "justjoinit": {
+      "target_url": "https://justjoin.it/",
+      "rules": {
+        "list_page": { "job_links_css": ".css-1x4nb90 a::attr(href)", "next_page_css": null },
+        "detail_page": { "title_css": "h1.css-1n0w1f::text", "company_css": ".css-1h4i019::text", "location_css": ".css-1d6u6g3::text", "description_css": ".css-10nzy0", "skills_css": ".css-1y982k6::text" }
+      }
+    },
+    "nofluffjobs": {
+      "target_url": "https://nofluffjobs.com/pl",
+      "rules": {
+        "list_page": { "job_links_css": "a.posting-list-item::attr(href)", "next_page_css": "a.page-link[aria-label='Next']::attr(href)" },
+        "detail_page": { "title_css": "h1.posting-details-title::text", "company_css": ".company-name::text", "location_css": ".posting-details-location::text", "description_css": ".posting-details-description", "skills_css": "span.tw-btn-sm::text" }
+      }
+    },
+    "bulldogjob": {
+      "target_url": "https://bulldogjob.pl/companies/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-item a.title::attr(href)", "next_page_css": "a.next_page::attr(href)" },
+        "detail_page": { "title_css": "h1.project-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".technology::text" }
+      }
+    }
+  },
+  "ja": {
+    "forkwell": {
+      "target_url": "https://jobs.forkwell.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-list-item a.link::attr(href)", "next_page_css": ".next a::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".job-location::text", "description_css": ".job-detail", "skills_css": ".skill-tag::text" }
+      }
+    },
+    "wantedly": {
+      "target_url": "https://www.wantedly.com/projects",
+      "rules": {
+        "list_page": { "job_links_css": ".project-title a::attr(href)", "next_page_css": ".pagination-next a::attr(href)" },
+        "detail_page": { "title_css": "h1.project-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".project-description", "skills_css": ".skill-tag::text" }
+      }
+    },
+    "green": {
+      "target_url": "https://www.green-japan.com/search",
+      "rules": {
+        "list_page": { "job_links_css": ".job-offer-title a::attr(href)", "next_page_css": ".next-page::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-body", "skills_css": ".skill-item::text" }
+      }
+    }
+  },
+  "ar": {
+    "bayt": {
+      "target_url": "https://www.bayt.com/en/jobs/",
+      "rules": {
+        "list_page": { "job_links_css": "h2.jb-title a::attr(href)", "next_page_css": "a.pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1.t-title::text", "company_css": ".t-company-name::text", "location_css": ".t-location::text", "description_css": ".t-content", "skills_css": ".t-skills span::text" }
+      }
+    },
+    "wuzzuf": {
+      "target_url": "https://wuzzuf.net/search/jobs",
+      "rules": {
+        "list_page": { "job_links_css": "h2.css-m604qf a::attr(href)", "next_page_css": "button.next::attr(href)" },
+        "detail_page": { "title_css": "h1.css-f9uh36::text", "company_css": "a.css-p7pghv::text", "location_css": "span.css-9geu3q::text", "description_css": "div.css-1uobp1k", "skills_css": ".css-158icaa::text" }
+      }
+    }
+  },
+  "tr": {
+    "kariyer_net": {
+      "target_url": "https://www.kariyer.net/is-ilanlari",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".pagination-next a::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-detail", "skills_css": ".skill-item::text" }
+      }
+    },
+    "webrazzi": {
+      "target_url": "https://kariyer.webrazzi.com/",
+      "rules": {
+        "list_page": { "job_links_css": ".job-card-title a::attr(href)", "next_page_css": ".next-page::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-description", "skills_css": ".skill::text" }
+      }
+    }
+  },
+  "hi": {
+    "instahyre": {
+      "target_url": "https://www.instahyre.com/jobs-for-programmers/",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".pagination-next::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".employer-name::text", "location_css": ".location::text", "description_css": ".job-description", "skills_css": ".skill-tag::text" }
+      }
+    },
+    "cutshort": {
+      "target_url": "https://cutshort.io/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-card a::attr(href)", "next_page_css": ".next-page::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".skill::text" }
+      }
+    }
+  },
+  "it": {
+    "reteinformaticalavoro": {
+      "target_url": "https://www.reteinformaticalavoro.it/offerte-lavoro-it",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".next a::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".skill::text" }
+      }
+    },
+    "iprogrammatori": {
+      "target_url": "https://www.iprogrammatori.it/lavoro/",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".next a::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".skill::text" }
+      }
+    }
+  },
+  "ko": {
+    "rocketpunch": {
+      "target_url": "https://www.rocketpunch.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".pagination-next a::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-description", "skills_css": ".skill::text" }
+      }
+    },
+    "wanted_korea": {
+      "target_url": "https://www.wanted.co.kr/wdlist",
+      "rules": {
+        "list_page": { "job_links_css": ".job-card a::attr(href)", "next_page_css": ".next a::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".skill::text" }
+      }
+    }
+  },
+  "id": {
+    "techinasia": {
+      "target_url": "https://www.techinasia.com/jobs",
+      "rules": {
+        "list_page": { "job_links_css": ".job-card a::attr(href)", "next_page_css": ".pagination-next a::attr(href)" },
+        "detail_page": { "title_css": "h1.job-title::text", "company_css": ".company-name::text", "location_css": ".location::text", "description_css": ".job-description", "skills_css": ".skill::text" }
+      }
+    },
+    "kalibrr": {
+      "target_url": "https://www.kalibrr.com/job-board",
+      "rules": {
+        "list_page": { "job_links_css": ".job-title a::attr(href)", "next_page_css": ".next a::attr(href)" },
+        "detail_page": { "title_css": "h1.title::text", "company_css": ".company::text", "location_css": ".location::text", "description_css": ".description", "skills_css": ".skill::text" }
+      }
+    }
+  }
+}
