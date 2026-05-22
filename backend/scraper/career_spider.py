@@ -1,5 +1,6 @@
 import scrapy
 import random
+import json
 from datetime import datetime, timezone
 
 class RotateUserAgentMiddleware:
@@ -16,10 +17,8 @@ class RotateUserAgentMiddleware:
     def process_request(self, request, spider):
         request.headers['User-Agent'] = random.choice(self.USER_AGENTS)
 
-class CareerSpider(scrapy.Spider):
-    name = "career_spider"
-    allowed_domains = ["example-careers.com"]
-    start_urls = ["https://example-careers.com/jobs"]
+class DynamicCareerSpider(scrapy.Spider):
+    name = "dynamic_career_spider"
 
     # Scrapy limits and behavior specs to avoid bans
     custom_settings = {
@@ -34,29 +33,73 @@ class CareerSpider(scrapy.Spider):
         }
     }
 
+    def __init__(self, target_url=None, rules=None, *args, **kwargs):
+        super(DynamicCareerSpider, self).__init__(*args, **kwargs)
+        self.start_urls = [target_url] if target_url else []
+        self.rules = json.loads(rules) if isinstance(rules, str) else (rules or {})
+        
+        if target_url:
+            from urllib.parse import urlparse
+            self.allowed_domains = [urlparse(target_url).netloc]
+
     def parse(self, response):
         """Parse the job list page."""
-        for job_card in response.css('.job-listing'):
-            url = job_card.css('a::attr(href)').get()
+        list_rule = self.rules.get('list_page', {})
+        job_links_css = list_rule.get('job_links_css')
+        job_links_xpath = list_rule.get('job_links_xpath')
+        
+        links = []
+        if job_links_css:
+            links = response.css(job_links_css).getall()
+        elif job_links_xpath:
+            links = response.xpath(job_links_xpath).getall()
+            
+        for url in links:
             if url:
-                # Follow absolute or relative URLs
                 yield response.follow(url, self.parse_job)
         
         # Follow pagination
-        next_page = response.css('a.next-page::attr(href)').get()
+        next_page_css = list_rule.get('next_page_css')
+        next_page_xpath = list_rule.get('next_page_xpath')
+        
+        next_page = None
+        if next_page_css:
+            next_page = response.css(next_page_css).get()
+        elif next_page_xpath:
+            next_page = response.xpath(next_page_xpath).get()
+            
         if next_page:
             yield response.follow(next_page, self.parse)
 
     def parse_job(self, response):
         """Parse individual job details."""
-        # Yielding raw item—further cleaning happens in the pipelines
+        detail_rule = self.rules.get('detail_page', {})
+        
+        def extract(field):
+            css_sel = detail_rule.get(f'{field}_css')
+            xpath_sel = detail_rule.get(f'{field}_xpath')
+            if css_sel:
+                return response.css(css_sel).get(default='').strip()
+            elif xpath_sel:
+                return response.xpath(xpath_sel).get(default='').strip()
+            return ''
+            
+        def extract_all(field):
+            css_sel = detail_rule.get(f'{field}_css')
+            xpath_sel = detail_rule.get(f'{field}_xpath')
+            if css_sel:
+                return response.css(css_sel).getall()
+            elif xpath_sel:
+                return response.xpath(xpath_sel).getall()
+            return []
+
         yield {
             'job_id': response.url.split('/')[-1] or "empty-id",
             'url': response.url,
-            'title': response.css('h1.job-title::text').get(default='').strip(),
-            'company': response.css('.company-name::text').get(default='TargetCo').strip(),
-            'location': response.css('.location::text').get(default='Remote').strip(),
-            'posting_date': response.css('time::attr(datetime)').get(default=datetime.now(timezone.utc).isoformat()),
-            'raw_description': response.css('.job-description-content').get(default=''),
-            'requirements': response.css('ul.requirements li::text').getall(),
+            'title': extract('title'),
+            'company': extract('company'),
+            'location': extract('location'),
+            'posting_date': extract('posting_date') or datetime.now(timezone.utc).isoformat(),
+            'raw_description': extract('description'),
+            'requirements': extract_all('skills'),
         }

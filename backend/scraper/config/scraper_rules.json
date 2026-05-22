@@ -1,0 +1,55 @@
+{
+  "profiles": {
+    "standard_html_board": {
+      "target_url": "https://example-careers.com/jobs",
+      "rules": {
+        "list_page": {
+           "job_links_css": ".job-listing a::attr(href)",
+           "next_page_css": "a.next-page::attr(href)"
+        },
+        "detail_page": {
+           "title_css": "h1.job-title::text",
+           "company_css": ".company-name::text",
+           "location_css": ".location::text",
+           "posting_date_css": "time::attr(datetime)",
+           "description_css": ".job-description-content",
+           "skills_css": "ul.requirements li::text"
+        }
+      }
+    },
+    "js_heavy_board": {
+      "target_url": "https://js-careers.com/api/jobs",
+      "rules": {
+        "list_page": {
+           "job_links_xpath": "//script[@id='__NEXT_DATA__']/text()",
+           "next_page_xpath": "//button[contains(@class, 'load-more')]/@data-next-url"
+        },
+        "detail_page": {
+           "title_xpath": "//h1[@data-testid='job-title']/text()",
+           "company_xpath": "//div[@data-testid='job-company']/text()",
+           "location_xpath": "//span[@data-testid='job-location']/text()",
+           "posting_date_xpath": "//meta[@itemprop='datePosted']/@content",
+           "description_xpath": "//div[@class='description-inner']",
+           "skills_xpath": "//div[@class='skill-tag']/text()"
+        }
+      }
+    },
+    "rss_feed_board": {
+      "target_url": "https://rss-careers.com/feed.xml",
+      "rules": {
+        "list_page": {
+           "job_links_xpath": "//item/link/text()",
+           "next_page_xpath": "//link[@rel='next']/@href"
+        },
+        "detail_page": {
+           "title_xpath": "//title/text()",
+           "company_xpath": "//dc:creator/text()",
+           "location_xpath": "//category[@domain='location']/text()",
+           "posting_date_xpath": "//pubDate/text()",
+           "description_xpath": "//description/text()",
+           "skills_xpath": "//category[@domain='skill']/text()"
+        }
+      }
+    }
+  }
+}
