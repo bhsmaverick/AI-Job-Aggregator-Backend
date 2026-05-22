@@ -39,7 +39,12 @@ def calculate_match_score(cv_text: str, job_description: str) -> dict:
     )
     
     # Extract structural dict
-    return json.loads(response.text)
+    raw_text = response.text.strip()
+    if raw_text.startswith("```json"):
+        raw_text = raw_text[7:].strip()
+    if raw_text.endswith("```"):
+        raw_text = raw_text[:-3].strip()
+    return json.loads(raw_text)
 
 def generate_cover_letter(cv_text: str, job_data: dict, target_language: str) -> str:
     """
